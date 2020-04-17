@@ -9,12 +9,13 @@ app.use(cors(corsOptions))
 app.use(bodyParser.json());
 
 app.get('/todos', (req, res) => {
+    console.log("Called Todo getter .......... ")
     fs.readFile("data/todos.json", "utf8", function(err, data) {
         if (err) {
-            // console.log(err)
+            console.log(err)
             return res.json(err);
         }
-        // console.log(data)
+        console.log(data)
         return res.json(data)
     });
 })
